@@ -37,6 +37,7 @@ function getNewNotifications(notifications) {
 }
 
 function fetchGithub() {
+	console.log('Fetch Github')
 	let endpoint = 'https://api.github.com/notifications?since='+ lastFetchedDate
 	fetch(endpoint, {
 		headers: { 'Authorization': 'Bearer ' + process.env.GITHUB_TOKEN }
