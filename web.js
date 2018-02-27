@@ -49,7 +49,7 @@ function fetchGithub() {
 		})
 }
 
-var j = schedule.scheduleJob('* 5 * * * *', function(){
+var j = schedule.scheduleJob('*/5 * * * *', function(){
 	fetchGithub()
 })
 
