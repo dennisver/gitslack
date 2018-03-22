@@ -7,10 +7,12 @@ const { WebClient } = require('@slack/client')
 const app = express()
 
 const web = new WebClient(process.env.SLACK_TOKEN)
-let lastFetchedDate = new Date('26 February 2018 14:48 UTC').toISOString()
+let lastFetchedDate = new Date().toISOString()
 
 function buildNotificationContent(notification) {
 	var url = "https://github.com"+ notification.subject.url.split('https://api.github.com/repos')[1]
+	url = url.replace('pulls', 'pull')
+	
 	return {
 		"username": "Github",
 		"icon_emoji": ":github:",
